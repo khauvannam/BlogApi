@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --title-text-color: #242424;
+}
+
+.btn {
+  @apply font-semibold px-3 py-4 rounded-2xl text-black bg-white outline-none border-solid border-[#f2f2f2];
+
+  &:hover {
+    @apply bg-white opacity-80;
+  }
+}
+.btn__tag {
+  @apply font-semibold py-2 px-4 rounded-2xl text-black bg-[rgb(242,242,242)] outline-none border-none;
+
+  &:hover {
+    @apply cursor-pointer;
+  }
+}
