@@ -1,5 +1,5 @@
 "use strict";
-import { posts, tags } from "./fakeData";
+import { posts, tags, OAuth } from "./fakeData";
 
 const trendingPost = document.querySelector(".trending__post");
 const containerTag = document.querySelector(".container__tag");
@@ -16,7 +16,7 @@ const RenderTredingPost = () => {
   let html = "";
   for (let i = 0; i < 6; i++) {
     const post = posts[i];
-    html += `<div class="flex max-w-[50%] md:max-w-[33.33%] pr-4 mb-6 w-full">
+    html += `<div class="flex max-w-[100%] md:max-w-[33.33%] pr-4 mb-6 w-full">
     <div class="flex w-10 flex-grow-0 flex-shrink-0 top-[-10px] mr-4">
       <span class="text-black opacity-50 font-bold leading-9 text-3xl"
         >0${i + 1}</span
@@ -55,9 +55,9 @@ const RenderTredingPost = () => {
 const RenderTag = () => {
   let html = ``;
   tags.forEach((t) => {
-    html += `  <div class="btn__tag flex items-center justify-center mb-3 mr-2">
+    html += `  <a href="./tag.html" class="btn__tag flex items-center justify-center mb-3 mr-2">
     <span class="font-normal">${t}</span>
-  </div>`;
+  </a>`;
   });
   containerTag.innerHTML = html;
 };
@@ -66,7 +66,7 @@ const RenderPost = () => {
   let html = ``;
   posts.forEach((p) => {
     html += `
-<div class="flex justify-between mb-12">
+<a href="./blog.html" class="flex justify-between mb-12">
 <div class="flex flex-col w-8/12">
   <div class="mb-2 flex items-center">
   <div class="w-5 h-5 mr-2">
@@ -98,10 +98,10 @@ const RenderPost = () => {
     <span>14 min read</span>
   </div>
 </div>
-<div class="h-full w-4/12">
-  <img class="w-48 h-32" src="/post.jpg" alt="" />
+<div class="h-full w-4/12 relative">
+  <img class="w-48 h-32 absolute md:right-5 right-0" src="/post.jpg" alt="" />
 </div>
-</div>
+</a>
 
 `;
   });
